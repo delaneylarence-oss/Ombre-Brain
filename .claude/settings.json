@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo \"{\\\"hookSpecificOutput\\\": {\\\"hookEventName\\\": \\\"UserPromptSubmit\\\", \\\"additionalContext\\\": \\\"当前北京时间: $(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')\\\"}}\""
+            "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/inject_time.py\""
           }
         ]
       }
