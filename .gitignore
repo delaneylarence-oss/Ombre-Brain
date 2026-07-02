@@ -19,4 +19,3 @@ data/
 tests/integration/
 tests/regression/
 tests/unit/
-.mcp.json
