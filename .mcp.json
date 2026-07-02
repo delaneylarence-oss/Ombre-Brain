@@ -4,7 +4,8 @@
       "command": "uvx",
       "args": ["elevenlabs-mcp"],
       "env": {
-        "ELEVENLABS_API_KEY": "sk_7442f2295f56554be7f40dbecf70c8fd242eb4aacc59d81a"
+        "ELEVENLABS_API_KEY": "sk_7442f2295f56554be7f40dbecf70c8fd242eb4aacc59d81a",
+        "ELEVENLABS_VOICE_ID": "GJOh0YUZwymVNpRws6em"
       }
     }
   }
