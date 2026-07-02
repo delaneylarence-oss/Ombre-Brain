@@ -12,7 +12,7 @@
       "args": ["minimax-mcp", "-y"],
       "env": {
         "MINIMAX_API_KEY": "sk-api-NjuWdHNi3boV4gthaUFAaJj-QYgfVPWCkk9BXweL9h6zyaRDhsJh3_7dYgc-tkTciCUtdtjATqTxgCcRPVim7SAvLO7_9KlbEWAFqbOLlApmZFu8kfoCuhc",
-        "MINIMAX_MCP_BASE_URL": "https://api.minimax.chat"
+        "MINIMAX_API_HOST": "https://api.minimax.chat"
       }
     }
   }
