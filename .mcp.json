@@ -6,6 +6,14 @@
       "env": {
         "ELEVENLABS_API_KEY": "sk_1ff37fd47af994c3ad56e4bb31584ab01c72e3875a18c1ec"
       }
+    },
+    "minimax": {
+      "command": "uvx",
+      "args": ["minimax-mcp", "-y"],
+      "env": {
+        "MINIMAX_API_KEY": "sk-api-NjuWdHNi3boV4gthaUFAaJj-QYgfVPWCkk9BXweL9h6zyaRDhsJh3_7dYgc-tkTciCUtdtjATqTxgCcRPVim7SAvLO7_9KlbEWAFqbOLlApmZFu8kfoCuhc",
+        "MINIMAX_MCP_BASE_URL": "https://api.minimax.chat"
+      }
     }
   }
 }
