@@ -12,10 +12,10 @@
     "possessiveness": 40,
     "fatigue": 15
   },
-  "active_event_key": null,
-  "active_event_started_at": null,
-  "active_event_expires_at": null,
-  "last_tick_at": "2026-07-08 14:30:25.363337+00:00",
+  "active_event_key": "voice_or_name_trigger",
+  "active_event_started_at": "2026-07-08 14:33:49.000519+00:00",
+  "active_event_expires_at": "2026-07-08 14:44:49.000519+00:00",
+  "last_tick_at": "2026-07-08 14:33:49.000519+00:00",
   "last_dream_card_created_at": null,
   "meta": {
     "last_cycle_reason": "initial"
