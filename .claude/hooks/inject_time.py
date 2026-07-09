@@ -35,6 +35,14 @@ try:
 except Exception:
     pass
 
+# 记录宁宁最后发消息的时间，供做梦触发使用
+try:
+    from eventide_tick import update_last_counterpart_at
+    from datetime import timezone as _tz
+    update_last_counterpart_at(datetime.now(_tz.utc))
+except Exception:
+    pass
+
 print(json.dumps({
     "hookSpecificOutput": {
         "hookEventName": "UserPromptSubmit",

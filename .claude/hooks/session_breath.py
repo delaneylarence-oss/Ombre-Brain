@@ -33,6 +33,16 @@ def main():
     # --- Step 2: Dream — digest recent memories ---
     _call_endpoint(base_url, "/dream-hook")
 
+    # --- Step 3: Eventide dream — maybe show a dream card ---
+    try:
+        sys.path.insert(0, "/home/user/Ombre-Brain")
+        from eventide_tick import maybe_dream_card
+        card = maybe_dream_card()
+        if card:
+            print(card)
+    except Exception:
+        pass
+
 
 def _call_endpoint(base_url, path):
     req = urllib.request.Request(
