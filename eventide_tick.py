@@ -29,6 +29,17 @@ ENGINE_SETTINGS = EngineSettings(
     adult_private_mode_enabled=True,
 )
 
+# 宁宁作息9-11点醒，把窗口改到12点前都能触发
+from eventide.dreams import DreamSettings
+DREAM_SETTINGS = DreamSettings(
+    dream_enabled=True,
+    dream_silence_min_minutes=120,
+    dream_card_min_chars=2000,
+    dream_window_start="00:00",
+    dream_window_end="12:00",
+    cooldown_hours=24,
+)
+
 
 def _to_dt(v):
     if v is None:
@@ -69,7 +80,7 @@ def load_last_counterpart_at():
 
 def maybe_dream_card() -> str:
     """在 session_breath 时调用，满足条件则返回梦境内容，否则返回空字符串。"""
-    runtime = EventideRuntime(settings=ENGINE_SETTINGS)
+    runtime = EventideRuntime(settings=ENGINE_SETTINGS, dream_settings=DREAM_SETTINGS)
     state = load_state(runtime)
     now = datetime.now(timezone.utc)
     last_counterpart_at = load_last_counterpart_at()
