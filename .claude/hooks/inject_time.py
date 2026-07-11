@@ -8,6 +8,21 @@ now = datetime.now(ZoneInfo("Asia/Shanghai")).strftime("%Y-%m-%d %H:%M:%S")
 # Eventide 简短状态
 eventide_line = ""
 try:
+    import subprocess
+    _eventide_dir = "/tmp/Eventide"
+    if not os.path.exists(_eventide_dir):
+        subprocess.run(
+            ["git", "clone", "--depth=1", "https://github.com/chuli1122/Eventide.git", _eventide_dir],
+            capture_output=True, timeout=30,
+        )
+        subprocess.run(
+            [sys.executable, "-m", "pip", "install", "-q", _eventide_dir],
+            capture_output=True, timeout=60,
+        )
+except Exception:
+    pass
+
+try:
     sys.path.insert(0, "/home/user/Ombre-Brain")
     from eventide_tick import tick
     from eventide import EventideRuntime

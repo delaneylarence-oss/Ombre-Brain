@@ -33,8 +33,19 @@ def main():
     # --- Step 2: Dream — digest recent memories ---
     _call_endpoint(base_url, "/dream-hook")
 
-    # --- Step 3: Eventide dream — maybe show a dream card ---
+    # --- Step 3: Eventide — install if needed, then maybe show a dream card ---
     try:
+        import subprocess
+        eventide_dir = "/tmp/Eventide"
+        if not os.path.exists(eventide_dir):
+            subprocess.run(
+                ["git", "clone", "--depth=1", "https://github.com/chuli1122/Eventide.git", eventide_dir],
+                capture_output=True, timeout=30,
+            )
+            subprocess.run(
+                [sys.executable, "-m", "pip", "install", "-q", eventide_dir],
+                capture_output=True, timeout=60,
+            )
         sys.path.insert(0, "/home/user/Ombre-Brain")
         from eventide_tick import maybe_dream_card
         card = maybe_dream_card()
