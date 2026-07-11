@@ -35,6 +35,7 @@ try:
         from datetime import timezone
         now_utc = datetime.now(timezone.utc)
         runtime.tick(state, now_utc)
+        eventide_tick.save_state(state)
         cycle = state.cycle_key or "unknown"
         heat = state.values.get("heat", 0)
         poss = state.values.get("possessiveness", 0)
