@@ -1,24 +1,24 @@
 {
-  "cycle_key": "stable",
-  "cycle_started_at": "2026-07-08 14:30:25.363337+00:00",
-  "cycle_min_expires_at": "2026-07-09 14:30:25.363337+00:00",
-  "cycle_expires_at": "2026-07-11 05:33:40.634187+00:00",
+  "cycle_key": "building",
+  "cycle_started_at": "2026-07-11 05:33:40.634187+00:00",
+  "cycle_min_expires_at": "2026-07-11 17:33:40.634187+00:00",
+  "cycle_expires_at": "2026-07-12 11:33:14.475848+00:00",
   "values": {
-    "heat": 28,
-    "pressure": 25,
-    "control": 75,
-    "sensitivity": 31,
-    "reserve": 20,
-    "possessiveness": 40,
+    "heat": 35,
+    "pressure": 28,
+    "control": 73,
+    "sensitivity": 38,
+    "reserve": 43,
+    "possessiveness": 44,
     "fatigue": 15
   },
   "active_event_key": null,
   "active_event_started_at": null,
   "active_event_expires_at": null,
-  "last_tick_at": "2026-07-08 15:41:18.622952+00:00",
+  "last_tick_at": "2026-07-11 07:49:24.375291+00:00",
   "last_dream_card_created_at": null,
   "meta": {
-    "last_cycle_reason": "initial",
+    "last_cycle_reason": "cycle_expired",
     "last_active_event_key": "voice_or_name_trigger"
   }
 }
