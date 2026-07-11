@@ -20,3 +20,4 @@ tests/integration/
 tests/regression/
 tests/unit/
 eventide_meta.json
+eventide_state.json
