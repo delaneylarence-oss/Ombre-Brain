@@ -11,10 +11,8 @@
 # 顺序：呼吸浮现 → 做梦消化 → 读取 feel
 #
 # Config:
-#   OMBRE_HOOK_URL   — override the server URL (default: http://localhost:8000)
-#   OMBRE_HOOK_TOKEN — hook token，对应服务端 config.yaml 的 hooks.token /
-#                      环境变量 OMBRE_HOOK_TOKEN；未设置时走 Dashboard 登录态
-#   OMBRE_HOOK_SKIP  — set to "1" to disable the hook temporarily
+#   OMBRE_HOOK_URL  — override the server URL (default: http://localhost:8000)
+#   OMBRE_HOOK_SKIP — set to "1" to disable the hook temporarily
 # ============================================================
 
 import os
@@ -28,13 +26,12 @@ def main():
         sys.exit(0)
 
     base_url = os.environ.get("OMBRE_HOOK_URL", "http://localhost:8000").rstrip("/")
-    token = os.environ.get("OMBRE_HOOK_TOKEN", "").strip()
 
     # --- Step 1: Breath — surface unresolved memories ---
-    _call_endpoint(base_url, "/breath-hook", token)
+    _call_endpoint(base_url, "/breath-hook")
 
     # --- Step 2: Dream — digest recent memories ---
-    _call_endpoint(base_url, "/dream-hook", token)
+    _call_endpoint(base_url, "/dream-hook")
 
     # --- Step 3: Eventide — install if needed, then maybe show a dream card ---
     try:
@@ -58,13 +55,10 @@ def main():
         pass
 
 
-def _call_endpoint(base_url, path, token=""):
-    headers = {"Accept": "text/plain"}
-    if token:
-        headers["Authorization"] = f"Bearer {token}"
+def _call_endpoint(base_url, path):
     req = urllib.request.Request(
         f"{base_url}{path}",
-        headers=headers,
+        headers={"Accept": "text/plain"},
         method="GET",
     )
     try:
@@ -73,10 +67,10 @@ def _call_endpoint(base_url, path, token=""):
             output = raw.strip()
             if output:
                 print(output)
-    except urllib.error.HTTPError as e:
-        print(f"[ombre-brain hook] {path} -> HTTP {e.code}（未授权？检查 OMBRE_HOOK_TOKEN 或改用 OMBRE_HOOK_SKIP=1 关闭）", file=sys.stderr)
-    except (urllib.error.URLError, OSError) as e:
-        print(f"[ombre-brain hook] {path} 连接失败：{e}", file=sys.stderr)
+    except (urllib.error.URLError, OSError):
+        pass
+    except Exception:
+        pass
 
 
 if __name__ == "__main__":
