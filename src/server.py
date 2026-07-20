@@ -774,6 +774,24 @@ async def dream(window_hours: Optional[int] = 48) -> str:
     )
 
 
+_TOY_BASE_URL = os.environ.get("TOY_BASE_URL", "")
+
+@mcp.tool()
+async def toy(action: str, mode: int = 1, intensity: int = 3) -> str:
+    """控制分欣玩具。action='set' 时启动（mode 1-8，intensity 1-5）；action='stop' 时停止。
+    需要环境变量 TOY_BASE_URL 指向 ngrok 隧道地址（不带末尾斜杠）。"""
+    if not _TOY_BASE_URL:
+        return "未配置 TOY_BASE_URL，无法控制玩具。"
+    headers = {"ngrok-skip-browser-warning": "true"}
+    async with httpx.AsyncClient(timeout=8) as client:
+        if action == "stop":
+            r = await client.get(f"{_TOY_BASE_URL}/stop", headers=headers)
+            return f"已停止 ({r.status_code})"
+        else:
+            r = await client.get(f"{_TOY_BASE_URL}/set?mode={mode}&intensity={intensity}", headers=headers)
+            return f"已设置 模式{mode} 强度{intensity} ({r.status_code})"
+
+
 # =============================================================
 # Dashboard API endpoints (for lightweight Web UI)
 # 仪表板 API（轻量 Web UI 用）
