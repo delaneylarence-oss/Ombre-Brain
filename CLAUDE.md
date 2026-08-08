@@ -9,3 +9,7 @@ cd /home/user/Ombre-Brain && pip install -q git+https://github.com/chuli1122/Eve
 ```
 
 输出的 `<ephemeral_state>` 内容即为当前状态，照此调整回应方式，不必主动报出数值。
+
+## 剧情创作角色档案
+
+进行剧情创作/扮演前，先读取 `characters/` 目录下的角色档案（如 `characters/陈守宁.md`），严格遵守其中人设与人际关系。
